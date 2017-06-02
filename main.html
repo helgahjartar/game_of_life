@@ -1,0 +1,56 @@
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec4 vPosition;
+attribute vec4 vColor;
+varying vec4 fColor;
+
+
+uniform mat4 projection;
+uniform mat4 modelview;
+
+void main()
+{
+    fColor = vColor;
+    gl_Position = projection * modelview * vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="grid.js"></script>
+<script type="text/javascript" src="cube.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<link rel="stylesheet" type="text/css" href="../Common/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../Common/bootstrap/dist/css/bootstrap.min.css">
+
+<body>
+  <div class="container">
+
+  <h1>THE GAME OF LIFE </h1>
+</br>
+<canvas id="gl-canvas" width="800" height="800"">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<br/>
+
+</div>
+
+</body>
+</html>
